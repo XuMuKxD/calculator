@@ -1,237 +1,220 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-
-let calculator={
-	numberA:null,
-	func:null,
-	numberB:null,
-	output:null,
-	enter:null
+let calculator = {
+	numberA: null,
+	func: null,
+	numberB: null,
+	output: 0,
+	enter: null
 }
+
 console.log(calculator);
+output();
 
 $("#1").click(function(){
-	console.log('1');
-	if (calculator.numberA===null){
-		calculator.numberA=1;
-		calculator.output=1;
-	}
-
-	else{
-		calculator.numberB=1;
-		calculator.output=1;
-	}
+	console.log(1);
+	number(1);
 
 	output();
-	
 });
+
 $("#2").click(function(){
-	console.log('2');
-		if (calculator.numberA===null){
-		calculator.numberA=2;
-		calculator.output=2;
-	}
+	console.log(2);
 
-	else{
-		calculator.numberB=2;
-		calculator.output=2;
-	}
+	number(2);
 
 	output();
-
-	
 });
+
 $("#3").click(function(){
-	console.log('3');
-		if (calculator.numberA===null){
-		calculator.numberA=3;
-		calculator.output=3;
-	}
+	console.log(3);
 
-	else{
-		calculator.numberB=3;
-		calculator.output=3;
-	}
+	number(3);
 
 	output();
-
-	
 });
+
 $("#4").click(function(){
-	console.log('4');
-		if (calculator.numberA===null){
-		calculator.numberA=4;
-		calculator.output=4;
-	}
+	console.log(4);
 
-	else{
-		calculator.numberB=4;
-		calculator.output=4;
-	}
+	number(4);
 
 	output();
-
-	
 });
-
 $("#5").click(function(){
-	console.log('5');
-		if (calculator.numberA===null){
-		calculator.numberA=5;
-		calculator.output=5;
-	}
+	console.log(5);
 
-	else{
-		calculator.numberB=5;
-		calculator.output=5;
-	}
+	number(5);
 
 	output();
-
-	
 });
 
 $("#6").click(function(){
-	console.log('6');
-		if (calculator.numberA===null){
-		calculator.numberA=6;
-		calculator.output=6;
-	}
+	console.log(6);
 
-	else{
-		calculator.numberB=6;
-		calculator.output=6;
-	}
+	number(6);
 
 	output();
-
-	
 });
 
 $("#7").click(function(){
-	console.log('7');
-		if (calculator.numberA===null){
-		calculator.numberA=7;
-		calculator.output=7;
-	}
+	console.log(7);
 
-	else{
-		calculator.numberB=7;
-		calculator.output=7;
-	}
+	number(7);
 
 	output();
-
-	
 });
-
 $("#8").click(function(){
-	console.log('8');
-		if (calculator.numberA===null){
-		calculator.numberA=8;
-		calculator.output=8;
-	}
+	console.log(8);
 
-	else{
-		calculator.numberB=8;
-		calculator.output=8;
-	}
+	number(8);
 
 	output();
-
-	
 });
 
 $("#9").click(function(){
-	console.log('9');
-		if (calculator.numberA===null){
-		calculator.numberA=9;
-		calculator.output=9;
-	}
+	console.log(9);
 
-	else{
-		calculator.numberB=9;
-		calculator.output=9;
-	}
+	number(9);
 
 	output();
-
-	
 });
 
 $("#0").click(function(){
-	console.log('0');
-		if (calculator.numberA===null){
-		calculator.numberA=0;
-		calculator.output=0;
-	}
+	console.log(0);
 
-	else{
-		calculator.numberB=0;
-		calculator.output=0;
-	}
+	number(0);
 
 	output();
-
-	
 });
 
 $("#plus").click(function(){
-	calculator.func='plus';
+	calculator.func = 'plus';
 	console.log('plus');
 });
-$("#enter").click(function(){
-	console.log('enter');
-		if (calculator.func==='plus'){
-			calculator.enter=calculator.numberA+calculator.numberB;
-			calculator.output=calculator.enter;
-		}
 
-		output();
+$("#min").click(function(){
+	calculator.func = 'min';
+	console.log('min');
 });
+
 $("#del").click(function(){
-	calculator.func='del';
+	calculator.func = 'del';
 	console.log('del');
 });
+
+$("#umn").click(function(){
+	calculator.func = 'umn';
+	console.log('umn');
+});
+
 $("#enter").click(function(){
 	console.log('enter');
-		if (calculator.func==='del'){
-			calculator.enter=calculator.numberA/calculator.numberB;
-			calculator.output=calculator.enter;
+
+	if (calculator.enter) {
+
+		if (calculator.func === 'umn') {
+			calculator.enter = calculator.enter * calculator.numberB;
+			calculator.output = calculator.enter;
 		}
 
-		output();
-});
-
-$("#minus").click(function(){
-	calculator.func='minus';
-	console.log('minus');
-});
-$("#enter").click(function(){
-	console.log('enter');
-		if (calculator.func==='minus'){
-			calculator.enter=calculator.numberA-calculator.numberB;
-			calculator.output=calculator.enter;
+		else if (calculator.func === 'del') {
+			calculator.enter = calculator.enter / calculator.numberB;
+			calculator.output = calculator.enter;
 		}
 
-		output();
-});
-
-$("#umnogit").click(function(){
-	calculator.func='umnogit';
-	console.log('umnogit');
-});
-$("#enter").click(function(){
-	console.log('enter');
-		if (calculator.func==='umnogit'){
-			calculator.enter=calculator.numberA*calculator.numberB;
-			calculator.output=calculator.enter;
+		else if (calculator.func === 'min') {
+			calculator.enter = calculator.enter - calculator.numberB;
+			calculator.output = calculator.enter;
 		}
 
-		output();
+		else if (calculator.func === 'plus') {
+			calculator.enter = calculator.enter + calculator.numberB;
+			calculator.output = calculator.enter;
+		}
+	}
+
+	else {
+
+		if (calculator.func === 'umn') {
+			calculator.enter = calculator.numberA * calculator.numberB;
+			calculator.output = calculator.enter;
+		}
+
+		else if (calculator.func === 'del') {
+			calculator.enter = calculator.numberA / calculator.numberB;
+			calculator.output = calculator.enter;
+		}
+
+		else if (calculator.func === 'min') {
+			calculator.enter = calculator.numberA - calculator.numberB;
+			calculator.output = calculator.enter;
+		}
+
+		else if (calculator.func === 'plus') {
+			calculator.enter = calculator.numberA + calculator.numberB;
+			calculator.output = calculator.enter;
+		}
+	}
+
+	output();
 });
 
-function output(){
+
+$("#clear").click(function(){
+	console.log('clear');
+
+	calculator.numberA = null;
+	calculator.numberB = null;
+	calculator.output = 0;
+	calculator.func = null;
+	calculator.enter = null;
+
+	output();
+});
+
+function number(number) {
+
+	if (calculator.enter) {
+			calculator.enter = null;
+
+			calculator.numberA = number;
+			calculator.output = calculator.numberA;
+	}
+
+	else {
+
+		if (calculator.func === null) {
+			if (calculator.numberA === null) {
+				calculator.numberA = number;
+				calculator.output = calculator.numberA;
+			}
+
+			else {
+
+				calculator.numberA = Number(String(calculator.numberA) + String(number));
+				calculator.output = calculator.numberA;
+			}
+		}
+
+		else {
+
+			if (calculator.numberB === null) {
+				calculator.numberB = number;
+				calculator.output = calculator.numberB;
+			}
+
+			else {
+
+				calculator.numberB = Number(String(calculator.numberB) + String(number));
+				calculator.output = calculator.numberB;
+			}
+		}
+	}
+}
+
+function output() {
 	$("#output").text(calculator.output);
 }
+
 });
